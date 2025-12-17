@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<!-- /* layout:decorate="~{layout 파일경로}" => layout 파일에 변경 영역 지정 */ -->
+<div layout:fragment="content">
+<h1>ex03</h1>
+[[${strList}]]
+<div th:each="str:${strList}">
+    [[${str}]]
+</div>
+<hr>
+[[${map}]]
+<div th:each = "f : ${map}">[[${f.key}]] : [[${f.value}]]원</div>
+<div>[[${map.apple}]]</div> <!-- value를 리턴 -->
+<hr>
+<h3>testList</h3>
+[[${testList}]]
+<h4>th:each</h4>
+<div th:each="test : ${testList}">
+    <span>[[${test.name}]] / [[${test.number}]]</span>
+</div>
+<script th:inline="javascript">
+        const list = [[${strList}]];
+        console.log(list);
+</script>
+</div>>
